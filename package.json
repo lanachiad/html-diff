@@ -1,0 +1,7 @@
+{
+  "name": "Diff Tool",
+  "version": "1.0",
+  "dependencies": {
+    "diff": "^3.5.0"
+  }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diff Tool 1.2</title>
+
+	<style type="text/css">
+		body {
+			font-family: 'Arial', sans-serif;
+		}
+
+		form {
+			display: flex;
+		}
+
+		.input-text {
+			border: 1px solid #000;
+			height: auto;
+			min-height: 300px;
+			max-height: 300px;
+			overflow: scroll;
+			width: 300px;
+		}
+
+		#submit-button {
+			display: block;
+		}
+
+		/*#display,
+		#combinedText,
+		#deletedText,
+		#addedText {
+	   	font-family: 'Arial', sans-serif;
+	   	white-space: pre-wrap;
+			width: 600px;
+		}*/
+
+		#content-comparison,
+		#html-comparison {
+			font-family: 'Arial', sans-serif;
+	   	white-space: pre-wrap;
+			width: 600px;
+		}
+
+		.red-bg {
+			background-color: red;
+		}
+
+		.yellow-bg {
+			background-color: yellow;
+		}
+
+		ins {
+		   background-color: yellow;
+		   text-decoration: none;
+		}
+
+		del {
+			background-color: red;
+		   text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<form id="isi-compare">
+		<div contenteditable="true" class="input-text" id="original-isi"></div>
+		<div contenteditable="true" class="input-text" id="new-isi"></div>
+		<input id="submit-button" type="submit" />
+	</form>
+
+	<pre id="display"></pre>
+
+	<hr/>
+
+	<h2 style="background-color: purple; font-size: 20px">Content Comparison</h2>
+	<div id="content-comparison"></div>
+
+	<h2 style="background-color: purple; font-size: 20px">HTML Comparison</h2>
+	<div id="html-comparison"></div>
+
+	<!-- <h2 style="background-color: purple; font-size: 20px">COMBINED?????</h2>
+	<div id="combinedText"></div>
+
+	<h2 style="background-color: purple; font-size: 20px">DELETED</h2>
+	<div id="deletedText"></div>
+
+	<h2 style="background-color: purple; font-size: 20px">REGEX DELETED</h2>
+	<div id="regexDeletedText"></div>
+
+	<h2 style="background-color: purple; font-size: 20px">ADDED</h2>
+	<div id="addedText"></div>
+
+	<h2 style="background-color: purple; font-size: 20px">REGEX ADDED</h2>
+	<div id="regexAddedText"></div> -->
+
+	<script src="./node_modules/diff/dist/diff.js"></script>
+	<script src="./script.js"></script>
+
+</body>
+</html>
