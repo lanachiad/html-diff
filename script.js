@@ -46,7 +46,7 @@ comparisonIsiContent = (oldContent, newContent) => {
 };
 
 comparisonIsiHTML = (oldHTML, newHTML) => {
-	const fragment = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
   const htmlComparison = document.getElementById('html-comparison');
 
   // Convert child element nodelists to arrays
@@ -70,22 +70,77 @@ comparisonIsiHTML = (oldHTML, newHTML) => {
       }
     });
 
+
+    // Save parent element
+    // Remove child nodes and save
+    // Push parent to array
+    // Recursively check each child until there's no childNode
+    // No child = pushed to array
+    let monkeybread = [];
+    cleanArray.forEach((ele) => {
+
+    	cleanTheKids = (element) => {
+    		if(element.children.length !== undefined) {
+		    	let cleanEle = element;
+		    	let cleanChildren = Array.prototype.slice.call(element.children);
+		    	cleanEle.innerHTML = "";
+		    	monkeybread.push(cleanEle);
+		    	// debugger;
+		    	cleanChildren.forEach((ele) => {
+			    	cleanTheKids(ele);
+		    	});
+    		// } else {
+    		// 	console.log('ELSE!!!!')
+    		// 	// debugger;
+    		// }
+    		}
+    		console.log(monkeybread);
+    	}
+
+    	cleanTheKids(ele);
+    })
+
+   //  // Check if parent has child
+   //  	// If true, store parent in variable
+   //  	// Remove child nodes
+   //  	// Store in monkeybread
+   //  	// Recursion
+
+   //  	// If false, store in monkeybread
+   // let monkeybread = [];
+   // cleanArray.forEach((ele) => {
+   // 	childLookup = (HTMLelement) => {
+   // 		if(HTMLelement.childNodes.length > 0) {
+   // 			console.log('there is a child: ' + HTMLelement);
+   // 			HTMLelement.childNodes.forEach((children) => {
+   // 				childLookup(children);
+   // 			});
+   // 		} else if(HTMLelement.outerHTML !== "<o:p></o:p>") {
+   // 			console.log('there is no child!');
+   // 			monkeybread.push(HTMLelement.parentNode);
+   // 			debugger;
+   // 		}
+   // 	};
+
+   // 	childLookup(ele);
+   // });
+
     // For each element, get to the deepest childNode 
 
     // Store that node in a new array
     // Remove node from heirarchy
     // Move to parent and recursion
-    let monkeybread = [];
-    cleanArray.forEach(function(ele) {
-      childLookup = (HTMLelement) => {
-        if (HTMLelement.childNodes.length > 0) {
-          childLookup(HTMLelement.childNodes[0]);
-        }
-        debugger;
-        monkeybread.push(HTMLelement.parentNode);
-      }
-      childLookup(ele);
-    })
+    // let monkeybread = [];
+    // cleanArray.forEach(function(ele) {
+    //   childLookup = (HTMLelement) => {
+    //     if (HTMLelement.childNodes.length > 0) {
+    //       childLookup(HTMLelement.childNodes[0]);
+    //     }
+    //     debugger;
+    //     monkeybread.push(HTMLelement.parentNode);
+    //   }
+    //   childLookup(ele);
+    // })
   }
 
   // findTheChildren = (array) => {
